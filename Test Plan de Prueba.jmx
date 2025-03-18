@@ -5,11 +5,13 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
         <intProp name="ThreadGroup.num_threads">1</intProp>
-        <intProp name="ThreadGroup.ramp_time">2</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -19,8 +21,8 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request GET">
-          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products</stringProp>
-          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products</stringProp>
+          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs</stringProp>
+          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/docs#tag/Products/operation/getAllProducts</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -39,8 +41,8 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request POST">
-          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products</stringProp>
-          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products</stringProp>
+          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs</stringProp>
+          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/docs#tag/Products/operation/addProduct</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -79,8 +81,8 @@
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request GET single">
-          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products/operation/getProductById</stringProp>
-          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products/{id}</stringProp>
+          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs</stringProp>
+          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/docs#tag/Products/operation/getProductById</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -99,8 +101,8 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request PUT">
-          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products/operation/updateProduct</stringProp>
-          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products/{id}</stringProp>
+          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs</stringProp>
+          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/docs#tag/Products/operation/updateProduct</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -124,8 +126,8 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request DELETE">
-          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products/operation/deleteProduct</stringProp>
-          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products/{id}</stringProp>
+          <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs</stringProp>
+          <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products/{id}https://fakestoreapi.com/docs#tag/Products/operation/deleteProduct</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -219,11 +221,11 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Gestor de Cabecera HTTP">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Gestor de Cabecera HTTP" enabled="true">
           <collectionProp name="HeaderManager.headers"/>
         </HeaderManager>
         <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </Arguments>
         <hashTree/>
@@ -239,7 +241,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
           <stringProp name="HTTPSampler.domain">https://fakestoreapi.com/docs#tag/Products</stringProp>
           <stringProp name="HTTPSampler.path">https://fakestoreapi.com/products</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -264,7 +266,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
